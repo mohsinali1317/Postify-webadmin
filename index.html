@@ -1,0 +1,161 @@
+<!-- This is the main file, here the templates are loaded, if you want to include any scripts or css this is the place where you do it -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Postify</title>
+        <meta charset="utf-8">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta content="" name="description">
+
+        <link href='//fonts.googleapis.com/css?family=Nixie+One|Signika+Negative:700|Parisienne|Sail|Gravitas+One|Quicksand|Asap:400italic|Just+Me+Again+Down+Here|Arapey|Alegreya:400italic|Lusitana:700|Rochester|Pacifico'
+              rel='stylesheet' type='text/css'>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/sticky-footer.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/main_style.css" rel="stylesheet">
+
+        <link href="css/sidebar.css" rel="stylesheet">
+
+        <!-- Plugins Css -->
+
+        <link href="css/jquery.cropbox.css" rel="stylesheet">
+        <link href="css/slider.css" rel="stylesheet">
+        <link href="css/colpick.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>
+            var app_id;
+            var test;
+            if (window.location.hostname == 'app.postify.com') {
+                app_id = '363008717049846';
+                test = false;
+            } else {
+                app_id = '264352750370878';
+                test = true;
+            }
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: app_id,
+                    status: true
+                    //xfbml      : true
+
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=354055618035875&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <!-- twitter share
+        <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+        -->
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+        <script src="js/core/underscore-min.js"></script>
+        <script src="js/core/jquery.min.js"></script>
+        <script src="https://mondido.com/v1/mondido.js?merchant_id=29"></script>
+
+
+        <script src="js/core/jquery.cookie.js"></script>
+
+
+        <script src="js/core/handlebars.js"></script>
+        <script src="js/core/ember.js"></script>
+        <script src="js/core/ember-data.js"></script>
+        <script src="js/core/local-storage-adapter.js"></script>
+
+        <!-- Template file, which would always be changing if you change something in hbs file. This is made using grunt command -->
+        <script src="build/templates.js"></script>
+
+
+
+
+        <!-- Minified versions of all the plugins we are using -->
+
+        <script src="js/core/hammer.min.js"></script>
+        <script src="js/core/modernizr.js"></script>
+
+        <!-- Ever Cookie -->
+        <script src="js/core/swfobject-2.2.min.js"></script>
+        <script src="js/core/evercookie.js"></script>
+
+        <!-- Segment.io Tracking library -->
+        <script type="text/javascript">
+            window.analytics = window.analytics ||
+                    [
+                    ], window.analytics.methods =
+                    [
+                        "identify",
+                        "group",
+                        "track",
+                        "page",
+                        "pageview",
+                        "alias",
+                        "ready",
+                        "on",
+                        "once",
+                        "off",
+                        "trackLink",
+                        "trackForm",
+                        "trackClick",
+                        "trackSubmit"
+                    ], window.analytics.factory = function (t) {
+                return function () {
+                    var a = Array.prototype.slice.call(arguments);
+                    return a.unshift(t), window.analytics.push(a), window.analytics
+                }
+            };
+            for (var i = 0; i < window.analytics.methods.length; i++) {
+                var key = window.analytics.methods[i];
+                window.analytics[key] = window.analytics.factory(key)
+            }
+            window.analytics.load = function (t) {
+                if (!document.getElementById("analytics-js")) {
+                    var a = document.createElement("script");
+                    a.type = "text/javascript", a.id = "analytics-js", a.async = !0, a.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.io/analytics.js/v1/" + t + "/analytics.min.js";
+                    var n = document.getElementsByTagName("script")[0];
+                    n.parentNode.insertBefore(a, n)
+                }
+            },
+                    window.analytics.SNIPPET_VERSION = "2.0.9",
+                    window.analytics.load("o9eo8h988a");
+            window.analytics.page();
+        </script>
+
+        <script src="js/core/bootstrap.min.js"></script>
+
+        <!-- Where everything gets instantiated.  -->
+        <script src="js/app.js"></script>
+
+        <!-- Controllers -->
+
+        <script src="js/controllers/index_controller.js"></script>
+
+
+    </body>
+</html>
